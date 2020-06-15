@@ -1,6 +1,8 @@
 syntax = "proto3";
 package auth;
 option go_package = "github.com/ISTE-SC-MANIT/megatreopuz-auth/proto";
+import "google/protobuf/timestamp.proto";
+
 
 message LoginRequest {
   string username = 1;
@@ -10,6 +12,8 @@ message LoginRequest {
 message LoginResponse {
   string acessToken = 1;
   string refreshToken = 2;
+ google.protobuf.Timestamp accessTokenExpiry = 3;
+ google.protobuf.Timestamp refreshTokenExpiry =4;
 }
 
 message Empty {}

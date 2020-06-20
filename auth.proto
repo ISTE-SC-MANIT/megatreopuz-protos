@@ -18,7 +18,21 @@ message LoginResponse {
 
 message Empty {}
 
+
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
+
+message Status{
+  bool isUserLoggedIn =1;
+  string accessToken=2;
+  string refreshToken=3;
+
+}
+
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse);
   rpc Logout(Empty) returns (Empty);
+  rpc validateUser(Empty) returns (Status);
 }

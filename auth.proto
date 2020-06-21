@@ -21,6 +21,8 @@ message Status {
   bool isUserLoggedIn = 1;
   string accessToken = 2;
   string refreshToken = 3;
+  google.protobuf.Timestamp accessTokenExpiry = 4;
+  google.protobuf.Timestamp refreshTokenExpiry = 5;
 }
 
 service AuthService {

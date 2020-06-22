@@ -3,7 +3,6 @@ package auth;
 option go_package = "github.com/ISTE-SC-MANIT/megatreopuz-auth/proto";
 import "google/protobuf/timestamp.proto";
 
-
 message LoginRequest {
   string username = 1;
   string password = 2;
@@ -12,27 +11,33 @@ message LoginRequest {
 message LoginResponse {
   string acessToken = 1;
   string refreshToken = 2;
- google.protobuf.Timestamp accessTokenExpiry = 3;
- google.protobuf.Timestamp refreshTokenExpiry =4;
+  google.protobuf.Timestamp accessTokenExpiry = 3;
+  google.protobuf.Timestamp refreshTokenExpiry = 4;
 }
 
 message Empty {}
 
-
-message Timestamp {
-  int64 seconds = 1;
-  int32 nanos = 2;
+message Status {
+  bool isUserLoggedIn = 1;
+  string accessToken = 2;
+  string refreshToken = 3;
 }
 
-message Status{
-  bool isUserLoggedIn =1;
-  string accessToken=2;
-  string refreshToken=3;
+message SendPasswordRecoveryEmailRequest{
+  string email =1;
+}
 
+
+
+message UpdatePasswordRequest{
+  string passwordID=1;
+  string newPassword=2;
 }
 
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse);
   rpc Logout(Empty) returns (Empty);
   rpc validateUser(Empty) returns (Status);
+  rpc SendPasswordRecoveryEmail(SendPasswordRecoveryEmailRequest) returns (Empty);
+  rpc UpdatePassword(UpdatePasswordRequest) returns (Empty);
 }

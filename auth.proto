@@ -23,21 +23,18 @@ message Status {
   string refreshToken = 3;
 }
 
-message SendPasswordRecoveryEmailRequest{
-  string email =1;
-}
+message SendPasswordRecoveryEmailRequest { string email = 1; }
 
-
-
-message UpdatePasswordRequest{
-  string passwordID=1;
-  string newPassword=2;
+message UpdatePasswordRequest {
+  string passwordID = 1;
+  string newPassword = 2;
 }
 
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse);
   rpc Logout(Empty) returns (Empty);
   rpc validateUser(Empty) returns (Status);
-  rpc SendPasswordRecoveryEmail(SendPasswordRecoveryEmailRequest) returns (Empty);
+  rpc SendPasswordRecoveryEmail(SendPasswordRecoveryEmailRequest)
+      returns (Empty);
   rpc UpdatePassword(UpdatePasswordRequest) returns (Empty);
 }

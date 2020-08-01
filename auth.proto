@@ -19,8 +19,11 @@ message CheckUsernameAvailabilityRequest { string username = 1; }
 
 message CheckUsernameAvailabilityResponse { bool available = 1; }
 
+message CheckStateResponse { bool initialised = 1; }
+
 service AuthService {
   rpc createLocalPlayer(CreateLocalPlayerRequest) returns (Empty);
   rpc checkUsernameAvailability(CheckUsernameAvailabilityRequest)
       returns (CheckUsernameAvailabilityResponse);
+  rpc checkUserState(Empty) returns (CheckStateResponse);
 }

@@ -1,0 +1,19 @@
+syntax = "proto3";
+package protos;
+
+import "utils.proto";
+
+message CreateLocalPlayerRequest {
+  string email = 1;
+  string password = 2;
+  string username = 3;
+  string name = 4;
+  string phone = 5;
+  string college = 6;
+  string country = 7;
+  uint32 year = 8;
+}
+
+service UserService {
+  rpc createLocalPlayer(CreateLocalPlayerRequest) returns (Empty);
+}

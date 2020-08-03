@@ -1,19 +1,7 @@
 syntax = "proto3";
-package auth;
-option go_package = "github.com/ISTE-SC-MANIT/megatreopuz-auth/proto";
+package protos;
 
 import "utils.proto";
-
-message CreateLocalPlayerRequest {
-  string email = 1;
-  string password = 2;
-  string username = 3;
-  string name = 4;
-  string phone = 5;
-  string college = 6;
-  string country = 7;
-  uint32 year = 8;
-}
 
 message CheckUsernameAvailabilityRequest { string username = 1; }
 
@@ -22,7 +10,6 @@ message CheckUsernameAvailabilityResponse { bool available = 1; }
 message CheckStateResponse { bool initialised = 1; }
 
 service AuthService {
-  rpc createLocalPlayer(CreateLocalPlayerRequest) returns (Empty);
   rpc checkUsernameAvailability(CheckUsernameAvailabilityRequest)
       returns (CheckUsernameAvailabilityResponse);
   rpc checkUserState(Empty) returns (CheckStateResponse);

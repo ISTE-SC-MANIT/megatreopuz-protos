@@ -4,8 +4,6 @@ package protos;
 import "utils.proto";
 
 message CreateLocalPlayerRequest {
-  string email = 1;
-  string password = 2;
   string username = 3;
   string name = 4;
   string phone = 5;

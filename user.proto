@@ -18,6 +18,7 @@ message UpdateLocalPlayerRequest{
   string college=3;
   string country=4;
   uint32 year=5;
+  string username=6;
 }
 
 message getPlayerResponse{

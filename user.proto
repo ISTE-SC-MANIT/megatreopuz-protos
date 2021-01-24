@@ -32,9 +32,17 @@ message getPlayerResponse{
   uint32 year = 8;
 }
 
+message AnswerQuestion{
+  string id=1;
+  string email=2;
+  uint32 questionNo=3;
+  string answer=4;
+}
+
 
 service UserService {
   rpc createLocalPlayer(CreateLocalPlayerRequest) returns (Empty);
   rpc updateLocalPlayer(UpdateLocalPlayerRequest) returns (Empty);
   rpc getPlayer(Empty) returns (getPlayerResponse);
+  rpc answerQuestion(AnswerQuestion) returns (Empty);
 }

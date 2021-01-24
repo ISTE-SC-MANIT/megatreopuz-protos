@@ -39,10 +39,16 @@ message AnswerQuestion{
   string answer=4;
 }
 
+message GetNextQuestionRespone{
+    uint32 questionNo=1;
+    string question=2;
+}
+
 
 service UserService {
   rpc createLocalPlayer(CreateLocalPlayerRequest) returns (Empty);
   rpc updateLocalPlayer(UpdateLocalPlayerRequest) returns (Empty);
   rpc getPlayer(Empty) returns (getPlayerResponse);
   rpc answerQuestion(AnswerQuestion) returns (Empty);
+  rpc getNextQuestion(Empty) returns (GetNextQuestionRespone);
 }

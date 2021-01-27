@@ -44,6 +44,13 @@ message GetNextQuestionRespone{
     string question=2;
 }
 
+message CreateQuestionRequest{
+  uint32 questionNo=1;
+  string imgUrl=2;
+  string answer=3;
+  string question=4;
+}
+
 
 service UserService {
   rpc createLocalPlayer(CreateLocalPlayerRequest) returns (Empty);
@@ -51,4 +58,5 @@ service UserService {
   rpc getPlayer(Empty) returns (getPlayerResponse);
   rpc answerQuestion(AnswerQuestion) returns (Empty);
   rpc getNextQuestion(Empty) returns (GetNextQuestionRespone);
+  rpc createQuestion(CreateQuestionRequest) returns (Empty);
 }

@@ -42,6 +42,7 @@ message AnswerQuestion{
 message GetNextQuestionRespone{
     uint32 questionNo=1;
     string question=2;
+    string questionId=3;
 }
 
 message CreateQuestionRequest{

@@ -51,6 +51,14 @@ message CreateQuestionRequest{
   string answer=3;
   string question=4;
 }
+message GetLeaderBoardResponse {
+  repeated User users = 1;
+}
+message User {
+ string name = 2;
+ uint32 questionsAttempted=3;
+ string username=4;
+}
 
 
 service UserService {
@@ -60,4 +68,5 @@ service UserService {
   rpc answerQuestion(AnswerQuestion) returns (Empty);
   rpc getNextQuestion(Empty) returns (GetNextQuestionRespone);
   rpc createQuestion(CreateQuestionRequest) returns (Empty);
+  rpc getLeaderBoard(Empty) returns (GetLeaderBoardResponse);
 }

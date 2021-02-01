@@ -58,6 +58,7 @@ message User {
  string name = 2;
  uint32 questionsAttempted=3;
  string username=4;
+ string lastAnsweredQuestionTime=5;
 }
 
 

@@ -31,6 +31,7 @@ message getPlayerResponse{
   string country = 7;
   uint32 year = 8;
   uint32 attempts = 9;
+  uint32 totalSolvedQuestions = 10;
 }
 
 message AnswerQuestion{

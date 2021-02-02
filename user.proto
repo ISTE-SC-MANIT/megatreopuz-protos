@@ -30,6 +30,7 @@ message getPlayerResponse{
   string college = 6;
   string country = 7;
   uint32 year = 8;
+  uint32 attempts = 9;
 }
 
 message AnswerQuestion{

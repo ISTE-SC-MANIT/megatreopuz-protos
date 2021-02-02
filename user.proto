@@ -59,6 +59,12 @@ message User {
  uint32 questionsAttempted=3;
  string username=4;
  string lastAnsweredQuestionTime=5;
+ string userId=6;
+}
+
+message GetRankResponse{
+  uint32 rank = 1;
+  uint32 totalUsers=2;
 }
 
 
@@ -70,4 +76,5 @@ service UserService {
   rpc getNextQuestion(Empty) returns (GetNextQuestionRespone);
   rpc createQuestion(CreateQuestionRequest) returns (Empty);
   rpc getLeaderBoard(Empty) returns (GetLeaderBoardResponse);
+
 }
